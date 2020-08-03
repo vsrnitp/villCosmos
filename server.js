@@ -20,6 +20,7 @@ mongoose.connect(databaseURL,{useNewUrlParser : true})
 // calling various api endpoints....
 const fastFoodProductList = require('./api/fastfood/productListApi');
 const addFastFoodProduct  = require('./api/fastfood/addProductApi');
+const deleteFastFoodProduct = require('./api/fastfood/deleteProductApi');
 
 
 //setting up the home route....
@@ -33,6 +34,9 @@ app.use('/api',fastFoodProductList);
 
 //calling addFastFoodProduct api....
 app.use('/api/add',addFastFoodProduct);
+
+//calling deleteFastFoodProductApi....
+app.use('/api/delete',deleteFastFoodProduct);
 
 // starting the server..
 const port = process.env.PORT || 8080;
