@@ -11,7 +11,7 @@ router.use(bodyParser.json());
 const {fastFoodListModel} = require('../../models/fastFoodList');
 
 //setting up the api end point
-router.post('/deleteFastFoodProduct/:id',(req,res)=>{
+router.delete('/deleteFastFoodProduct/:id',(req,res)=>{
 var fastFoodId = req.params.id;
 fastFoodListModel.findByIdAndRemove(fastFoodId,(err,doc)=>{
 if(err) res.status(500).send(err);
