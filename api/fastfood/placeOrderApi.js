@@ -7,12 +7,12 @@ router.use(bodyParser.urlencoded({extended:false}));
 router.use(bodyParser.json());
 
 //bring out the database model for placing order
-const {fastFoodOrderDetailsModel} = require('../../models/fastFoodOrderDetails');
+const {fastFoodOrderDetailsReloadedModel} = require('../../models/fastFoodOrderDetails');
 
 
 //setting up the api endpoint....
 router.post('/confirm',(req,res)=>{
-    var fastFoodOrderData = new fastFoodOrderDetailsModel({
+    var fastFoodOrderData = new fastFoodOrderDetailsReloadedModel({
         productName:req.body.productName,
         productPrice:req.body.productPrice,
         productQuantity:req.body.productQuantity,
