@@ -7,12 +7,12 @@ router.use(bodyParser.urlencoded({extended:false}));
 router.use(bodyParser.json());
 
 //bring out the database model
-const {fastFoodOrderDetailsModel} = require('../../models/fastFoodOrderDetails');
+const {fastFoodOrderDetailsReloadedModel} = require('../../models/fastFoodOrderDetails');
 
 //setting up the api end point
 router.delete('/deleteDeliveredFastFoodProduct/:id',(req,res)=>{
 var deliveredFastFoodId = req.params.id;
-fastFoodOrderDetailsModel.findByIdAndRemove(deliveredFastFoodId,(err,doc)=>{
+fastFoodOrderDetailsReloadedModel.findByIdAndRemove(deliveredFastFoodId,(err,doc)=>{
 if(err) res.status(500).send(err);
 else res.status(200).send(doc);
 })
