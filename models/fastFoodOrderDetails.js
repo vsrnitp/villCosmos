@@ -4,7 +4,6 @@ const fastFoodOrderDetailsSchema = mongoose.Schema({
     productName:{
         type:String,
         required:true,
-        unique:1
     },
     productPrice:{
         type:String,
