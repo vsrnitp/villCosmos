@@ -18,9 +18,13 @@ mongoose.connect(databaseURL,{useNewUrlParser : true})
 
 
 // calling various api endpoints....
-const fastFoodProductList = require('./api/fastfood/productListApi');
-const addFastFoodProduct  = require('./api/fastfood/addProductApi');
-const deleteFastFoodProduct = require('./api/fastfood/deleteProductApi');
+const fastFoodProductList = require('./api/fastfood/productListApi'); //GET
+const addFastFoodProduct  = require('./api/fastfood/addProductApi'); //POST
+const deleteFastFoodProduct = require('./api/fastfood/deleteProductApi'); //DELETE
+const updateFastFoodProduct = require('./api/fastfood/updateProductApi'); //POST
+const placeFastFoodOrder = require('./api/fastfood/placeOrderApi'); //POST
+const ordersListFastFood = require('./api/fastfood/ordersListApi'); //GET
+const successfulDeliveredFastFoodOrder = require('./api/fastfood/successfulDeliveredOrders'); //DELETE
 
 
 //setting up the home route....
@@ -37,6 +41,18 @@ app.use('/api/add',addFastFoodProduct);
 
 //calling deleteFastFoodProductApi....
 app.use('/api/delete',deleteFastFoodProduct);
+
+//calling placeFastFoodOrder Api....
+app.use('/api/orderPlace',placeFastFoodOrder);
+
+//calling ordersListFastFood Api....
+app.use('/api/fetch',ordersListFastFood);
+
+//calling successfulDeliveredFastFoodOrder Api....
+app.use('/api/completedOrder',successfulDeliveredFastFoodOrder);
+
+//calling updateFastFoodProductApi ....
+app.use('/api/update',updateFastFoodProduct);
 
 // starting the server..
 const port = process.env.PORT || 8080;
