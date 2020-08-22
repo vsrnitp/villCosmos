@@ -26,7 +26,10 @@ router.post('/search',(req,res)=>{
           .then((data1,err)=>{
               if(err) res.send(err);
               else{
-                  res.send(data+data1);
+                  var finalData;
+                  finalData.push(data);
+                  finalData.push(data1);
+                  res.send(finalData);
               }
           })
       }  
