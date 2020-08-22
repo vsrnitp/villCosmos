@@ -24,6 +24,10 @@ const fastFoodOrderDetailsReloadedSchema = mongoose.Schema({
     totalBillingAmount:{
         type:String,
         required:true
+    },
+    timeOfOrder:{
+        type:Date,
+        default:Date.now()
     }
 })
 
