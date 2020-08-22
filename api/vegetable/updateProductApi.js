@@ -19,7 +19,7 @@ router.post('/updateVegetableProduct/:id',(req,res)=>{
     var  productPrice = req.body.productPrice;
     var productImgUri = req.body.productImgUri;
 
-    fastFoodListModel.findByIdAndUpdate(vegetableId,{"productName":productName,"productDescription":productDescription,"productPrice":productPrice
+    vegetableListModel.findByIdAndUpdate(vegetableId,{"productName":productName,"productDescription":productDescription,"productPrice":productPrice
                                             ,"productImgUri":productImgUri
 },(err,doc)=>{
     if(err)res.send(err);
