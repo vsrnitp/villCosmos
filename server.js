@@ -17,7 +17,7 @@ mongoose.connect(databaseURL,{useNewUrlParser : true})
 })
 
 
-// calling various api endpoints....
+// calling various api endpoints....(For fast food)
 const fastFoodProductList = require('./api/fastfood/productListApi'); //GET
 const addFastFoodProduct  = require('./api/fastfood/addProductApi'); //POST
 const deleteFastFoodProduct = require('./api/fastfood/deleteProductApi'); //DELETE
@@ -26,6 +26,14 @@ const placeFastFoodOrder = require('./api/fastfood/placeOrderApi'); //POST
 const ordersListFastFood = require('./api/fastfood/ordersListApi'); //GET
 const successfulDeliveredFastFoodOrder = require('./api/fastfood/successfulDeliveredOrders'); //DELETE
 
+// calling various api endpoints....(For vegetables)
+const vegetableProductList = require('./api/vegetable/productListApi'); //GET
+const addVegetableProduct  = require('./api/vegetable/addProductApi'); //POST
+const deleteVegetableProduct = require('./api/vegetable/deleteProductApi'); //DELETE
+const updateVegetableProduct = require('./api/vegetable/updateProductApi'); //POST
+const placeVegetableOrder = require('./api/vegetable/placeOrderApi'); //POST
+const ordersListVegetable = require('./api/vegetable/ordersListApi'); //GET
+const successfulDeliveredVegetableOrder = require('./api/vegetable/successfulDeliveredOrders'); //DELETE
 
 //setting up the home route....
 app.get('/',(req,res)=>{
@@ -33,6 +41,10 @@ app.get('/',(req,res)=>{
 
 })
 
+
+
+
+/******FAST FOOD SECTION*************/
 //calling fastFoodProductList api....
 app.use('/api',fastFoodProductList);
 
@@ -53,6 +65,34 @@ app.use('/api/completedOrder',successfulDeliveredFastFoodOrder);
 
 //calling updateFastFoodProductApi ....
 app.use('/api/update',updateFastFoodProduct);
+
+
+
+
+
+
+
+/*********VEGETABLE SECTION*************/
+//calling vegetableProductList api....
+app.use('/api/vegetable',vegetableProductList);
+
+//calling addVegetableProduct api....
+app.use('/api/vegetable/add',addVegetableProduct);
+
+//calling deleteVegetableProduct Api....
+app.use('/api/vegetable/delete',deleteVegetableProduct);
+
+//calling placeVegetableOrder Api....
+app.use('/api/vegetable/orderPlace',placeVegetableOrder);
+
+//calling ordersListVegetable Api....
+app.use('/api/vegetable/fetch',ordersListVegetable);
+
+//calling successfulDeliveredVegetableOrder Api....
+app.use('/api/vegetable/completedOrder',successfulDeliveredVegetableOrder);
+
+//calling updateVegetableProductApi ....
+app.use('/api/vegetable/update',updateVegetableProduct);
 
 // starting the server..
 const port = process.env.PORT || 8080;
