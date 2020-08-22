@@ -35,6 +35,9 @@ const placeVegetableOrder = require('./api/vegetable/placeOrderApi'); //POST
 const ordersListVegetable = require('./api/vegetable/ordersListApi'); //GET
 const successfulDeliveredVegetableOrder = require('./api/vegetable/successfulDeliveredOrders'); //DELETE
 
+//calling out api end point for masterSearch.....
+const masterSearch = require('./api/search/masterSearch');
+
 //setting up the home route....
 app.get('/',(req,res)=>{
     res.status(200).send('All good! Home route for villageCosmos backend api!');
@@ -93,6 +96,10 @@ app.use('/api/vegetable/completedOrder',successfulDeliveredVegetableOrder);
 
 //calling updateVegetableProductApi ....
 app.use('/api/vegetable/update',updateVegetableProduct);
+
+
+/****************SEARCH SECTION**************/
+app.use('/api/master',masterSearch);
 
 // starting the server..
 const port = process.env.PORT || 8080;
