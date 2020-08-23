@@ -8,7 +8,6 @@ router.use(bodyParser.json());
 
 //bring out the database model
 const {fastFoodListModel} = require('../../models/fastFoodList');
-const {vegetableListModel} = require('../../models/vegetableList');
 
 //setting up Api endpoint...
 router.post('/search',(req,res)=>{
@@ -22,13 +21,7 @@ router.post('/search',(req,res)=>{
     .then((data,err)=>{
       if(err) res.send(err);
       else{
-          vegetableListModel.find({productDescription:{$regex:searchString}})
-          .then((data1,err)=>{
-              if(err) res.send(err);
-              else{
-                  res.send(data+data1);
-              }
-          })
+                  res.send(data);
       }  
     })
 })

@@ -36,7 +36,8 @@ const ordersListVegetable = require('./api/vegetable/ordersListApi'); //GET
 const successfulDeliveredVegetableOrder = require('./api/vegetable/successfulDeliveredOrders'); //DELETE
 
 //calling out api end point for masterSearch.....
-const masterSearch = require('./api/search/masterSearch');
+const fastFoodSearch = require('./api/search/fastFoodSearch');
+const vegetableSearch = require('./api/search/vegetableSearch');
 
 //setting up the home route....
 app.get('/',(req,res)=>{
@@ -99,7 +100,8 @@ app.use('/api/vegetable/update',updateVegetableProduct);
 
 
 /****************SEARCH SECTION**************/
-app.use('/api/master',masterSearch);
+app.use('/api/fastFoodSearch',fastFoodSearch);
+app.use('/api/vegetableSearch',vegetableSearch);
 
 // starting the server..
 const port = process.env.PORT || 8080;
