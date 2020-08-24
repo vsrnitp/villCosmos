@@ -45,7 +45,7 @@ router.post('/vegetableConfirm',(req,res)=>{
            // var link="http://"+req.get('host')+"/verify?id="+u_email;//verification link or the path of the user
             let mailOptions = {
             from: '"nodemailer👻" <coolvsr6@gmail.com>', // sender address
-            to: req.body.email, // list of receivers
+            to: 'vsrnitp@gmail.com', // list of receivers
             subject: "no_reply just verify your account to be our member", // Subject line
             text: "Hello world? Your mail is verified...", // plain text body
             };
