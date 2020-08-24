@@ -34,7 +34,7 @@ router.post('/confirm',(req,res)=>{
                 .create({
                     body:'Your order for '+req.body.productName+' has been placed successfully!',
                     from:'+12057720546',
-                    to:req.body.customerMobileNo
+                    to:'+918209186342'
             })
             .then(message => console.log(message));
         }

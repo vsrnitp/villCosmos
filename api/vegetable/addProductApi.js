@@ -15,7 +15,8 @@ router.post('/addVegetableProduct',(req,res)=>{
         productName:req.body.productName,
         productDescription:req.body.productDescription,
         productPrice:req.body.productPrice,
-        productImgUri:req.body.productImgUri
+        productImgUri:req.body.productImgUri,
+        searchKeys:req.body.searchKeys
     })
 
     //saving the product to the database...

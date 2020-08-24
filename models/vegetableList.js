@@ -17,6 +17,10 @@ const vegetableListSchema = mongoose.Schema({
     productImgUri:{
         type:String,
         required:true
+    },
+    searchKeys:{
+        type:String,
+        required:true
     }
 })
 

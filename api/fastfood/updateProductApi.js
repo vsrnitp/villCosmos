@@ -18,9 +18,10 @@ router.post('/updateFastFoodProduct/:id',(req,res)=>{
     var productDescription = req.body.productDescription;
     var  productPrice = req.body.productPrice;
     var productImgUri = req.body.productImgUri;
+    var searchKeys = req.body.searchKeys;
 
     fastFoodListModel.findByIdAndUpdate(fastFoodId,{"productName":productName,"productDescription":productDescription,"productPrice":productPrice
-                                            ,"productImgUri":productImgUri
+                                            ,"productImgUri":productImgUri,"searchKeys":searchKeys
 },(err,doc)=>{
     if(err)res.send(err);
     else res.status(200).send(doc);

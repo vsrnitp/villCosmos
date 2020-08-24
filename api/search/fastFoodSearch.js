@@ -17,7 +17,7 @@ router.post('/search',(req,res)=>{
     //IMPORTANT.....READ IT
     // right now i am using the product description to find using regex , later change should be done in the schema and a keyword section should be added which will be used to implement regex searching
 
-    fastFoodListModel.find({productDescription:{$regex:searchString,$options:"$i"}})
+    fastFoodListModel.find({searchKeys:{$regex:searchString,$options:"$i"}})
     .then((data,err)=>{
       if(err) res.send(err);
       else{
