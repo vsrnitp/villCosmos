@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 
 //middlewares...
 router.use(bodyParser.urlencoded({extended:false}));
@@ -26,17 +27,15 @@ router.post('/vegetableConfirm',(req,res)=>{
         if(err) res.send(err);
         else{
             res.status(200).send(doc);
-            // here we will set the logic for twilio to send sms...
-            const accountSid = 'AC7b052f17d35fd1cb6a96015095830233';
-            const authToken  = 'ef8877c01a862c95b98faa11bdc40c4c';
-            const client = require('twilio')(accountSid,authToken);
-            client.messages
-                .create({
-                    body:'Your order for '+req.body.productName+' has been placed successfully!',
-                    from:'+12057720546',
-                    to:'+918209186342'
-            })
-            .then(message => console.log(message));
+              // here we will set the logic for twillio to send sms...
+        const accountSid = '***********';
+        const authToken = '**********';
+        const client = require('twilio')(accountSid,authToken);
+        client.messages.create({
+          body:'\nOrder received for \nproduct Name - '+req.body.productName+'\n product Price - '+req.body.productPrice+'\n Product Quantity - '+req.body.productQuantity+'\n Delivery Address - '+req.body.deliveryAddress+'\n Customer Mobile No. - '+req.body.customerMobileNo+'\n Total Billing Amount'+' '+req.body.totalBillingAmount,
+          from:'+12028738498',
+          to:'+917703882887'
+                  }).then(message => console.log(message.sid))
         }
     })
 })
