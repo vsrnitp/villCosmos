@@ -35,9 +35,14 @@ const placeVegetableOrder = require('./api/vegetable/placeOrderApi'); //POST
 const ordersListVegetable = require('./api/vegetable/ordersListApi'); //GET
 const successfulDeliveredVegetableOrder = require('./api/vegetable/successfulDeliveredOrders'); //DELETE
 
-//calling out api end point for masterSearch.....
+//calling out various api end points for search.....
 const fastFoodSearch = require('./api/search/fastFoodSearch');
 const vegetableSearch = require('./api/search/vegetableSearch');
+
+//calling out various api end points for cart.....
+const ordersListCart = require('./api/cart/fetchCartOrdersApi');
+const placeCartOrder = require('./api/cart/placeCartOrderApi');
+const confirmCartOrder = require('./api/cart/confirmCartOrersApi');
 
 //setting up the home route....
 app.get('/',(req,res)=>{
@@ -102,6 +107,16 @@ app.use('/api/vegetable/update',updateVegetableProduct);
 /****************SEARCH SECTION**************/
 app.use('/api/fastFoodSearch',fastFoodSearch);
 app.use('/api/vegetableSearch',vegetableSearch);
+
+/*********CART SECTION*************/
+//api to call out cart order list (user specific)....
+app.use('/api/cart/fetch',ordersListCart);
+
+//api to place cart order....
+app.use('/api/cart/orderPlace',placeCartOrder);
+
+//api to confirm cart order....
+app.use('/api/cart/orderConfirm',confirmCartOrder);
 
 // starting the server..
 const port = process.env.PORT || 8080;

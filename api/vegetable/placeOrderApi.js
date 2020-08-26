@@ -27,7 +27,6 @@ router.post('/vegetableConfirm',(req,res)=>{
         if(err) res.send(err);
         else{
             res.status(200).send(doc);
-<<<<<<< HEAD
               // here we will set the logic for twillio to send sms...
         const accountSid = '***********';
         const authToken = '**********';
@@ -37,10 +36,6 @@ router.post('/vegetableConfirm',(req,res)=>{
           from:'+12028738498',
           to:'+917703882887'
                   }).then(message => console.log(message.sid))
-=======
-            // here we will set the logic for nodemailer to send sms...
-        
->>>>>>> bf4827bccf632c6e35bfc6c9325c29a184ef42fe
         }
     })
 })
