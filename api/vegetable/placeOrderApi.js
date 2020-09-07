@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+
 
 //middlewares...
 router.use(bodyParser.urlencoded({extended:false}));

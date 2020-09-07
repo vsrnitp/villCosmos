@@ -44,6 +44,11 @@ const ordersListCart = require('./api/cart/fetchCartOrdersApi');
 const placeCartOrder = require('./api/cart/placeCartOrderApi');
 const confirmCartOrder = require('./api/cart/confirmCartOrersApi');
 
+//calling out various api endpoints for deliveryPortal (DP)
+const deliveryAgentRegistration = require('./api/deliveryPortal/deliveryAgentRegistration');
+const deliveryAgentLogin = require('./api/deliveryPortal/deliveryAgentLogin');
+
+
 //setting up the home route....
 app.get('/',(req,res)=>{
     res.status(200).send('All good! Home route for villageCosmos backend api!');
@@ -117,6 +122,12 @@ app.use('/api/cart/orderPlace',placeCartOrder);
 
 //api to confirm cart order....
 app.use('/api/cart/orderConfirm',confirmCartOrder);
+
+
+
+/***************DELIVERY PORTAL SECTION***************/
+app.use('/api/dp/deliveryAgentRegistration',deliveryAgentRegistration);
+app.use('/api/dp/deliveryAgentLogin',deliveryAgentLogin);
 
 // starting the server..
 const port = process.env.PORT || 8080;
