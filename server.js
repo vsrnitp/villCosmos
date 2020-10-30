@@ -47,6 +47,7 @@ const confirmCartOrder = require('./api/cart/confirmCartOrersApi');
 //calling out various api endpoints for deliveryPortal (DP)
 const deliveryAgentRegistration = require('./api/deliveryPortal/deliveryAgentRegistration');
 const deliveryAgentLogin = require('./api/deliveryPortal/deliveryAgentLogin');
+const ordersList = require('./api/deliveryPortal/ordersList');
 
 
 //setting up the home route....
@@ -128,6 +129,7 @@ app.use('/api/cart/orderConfirm',confirmCartOrder);
 /***************DELIVERY PORTAL SECTION***************/
 app.use('/api/dp/deliveryAgentRegistration',deliveryAgentRegistration);
 app.use('/api/dp/deliveryAgentLogin',deliveryAgentLogin);
+app.use('/api/dp/orders',ordersList);
 
 // starting the server..
 const port = process.env.PORT || 8080;

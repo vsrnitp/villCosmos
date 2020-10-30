@@ -9,8 +9,16 @@ router.use(bodyParser.json());
 //bring out the database model
 const {vegetableOrderDetailsReloadedModel} = require('../../models/vegetableOrderDetails');
 
+//CORS solution....
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+   // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 //setting up the api end point
-router.delete('/deleteDeliveredVegetableProduct/:id',(req,res)=>{
+router.post('/deleteDeliveredVegetableProduct/:id',(req,res)=>{
 var deliveredVegetableId = req.params.id;
 vegetableOrderDetailsReloadedModel.findByIdAndRemove(deliveredVegetableId,(err,doc)=>{
 if(err) res.status(500).send(err);

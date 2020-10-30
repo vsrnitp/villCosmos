@@ -13,6 +13,14 @@ router.use(cookieParser());
 // bringing the database model...
 const {deliveryAgentRegistrationModel} = require('../../models/deliveryAgentRegistrationData');
 
+//CORS solution....
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+   // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 //setting up api endpoint.'..
 router.post('/deliveryAgentLogin',(req,res)=>{
  const userName = req.body.userName;
@@ -28,7 +36,7 @@ router.post('/deliveryAgentLogin',(req,res)=>{
              else{
                 var token = jwt.sign(user._id.toHexString(),'supersecret');
                 res.cookie('deliveryAgentLoginToken',token)
-                res.status(200).send('cookie set with token '+token+' authenticated!!!..'); 
+                res.status(200).send(user); 
              }
          })
      }
