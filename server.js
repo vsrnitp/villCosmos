@@ -8,7 +8,7 @@ const app = express();
 
 
 // connecting to the database (mongoDB)...
-const databaseURL = 'mongodb+srv://root:ToyMe23Hell@cluster0.b2w22.mongodb.net/hippo?retryWrites=true&w=majority'
+const databaseURL = 'mongodb+srv://@cluster0.b2w22.mongodb.net/hippo?retryWrites=true&w=majority'
 mongoose.connect(databaseURL,{useNewUrlParser : true})
 .then(()=>{
     console.log('Database connected succesfully...')
